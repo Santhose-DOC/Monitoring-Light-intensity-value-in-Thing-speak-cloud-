@@ -90,8 +90,30 @@ Prototype and build IoT systems without setting up servers or developing web sof
 
  
 # PROGRAM:
+
+~~~
+const int Soil_pin = 25;  // Soil MOisture */ ADC CH2
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int Soil_adc_val;
+  Soil_adc_val = analogRead(Soil_pin);  /* Read Temperature */
+  Serial.print("Soil Moisture Range = ");
+  Serial.println(Soil_adc_val);
+  delay(1000);
+}
+~~~
+
 # CIRCUIT DIAGRAM:
+
+![b15372c8-d238-484c-88a7-e0a77786768c](https://github.com/user-attachments/assets/9fc131c7-7067-40a6-b4ea-85e3b995f771)
+
 # OUTPUT:
+
+![2a28f792-b721-45ee-a76a-7b2018b0c454](https://github.com/user-attachments/assets/03bc8a82-178b-49ba-b927-2004f7aa1a2e)
+
 # RESULT:
 
 Thus the light intensity values are updated in the Thing speak cloud using ESP32 controller.

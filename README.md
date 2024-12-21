@@ -92,27 +92,69 @@ Prototype and build IoT systems without setting up servers or developing web sof
 # PROGRAM:
 
 ~~~
-const int Soil_pin = 25;  // Soil MOisture */ ADC CH2
-void setup() {
-  Serial.begin(9600);
-}
 
-void loop() {
-  int Soil_adc_val;
-  Soil_adc_val = analogRead(Soil_pin);  /* Read Temperature */
-  Serial.print("Soil Moisture Range = ");
-  Serial.println(Soil_adc_val);
+ #include"ThingSpeak.h"
+#include <WiFi.h>
+
+char ssid[]="hu79235G";
+char pass[]="Tablemat#123";
+
+const int LDR_PIN=34;
+//#define LDR_PIN 34
+WiFiClient client;
+
+unsigned long myChannelField = 2754605;
+const int ChannelField1 = 1 ; 
+
+const char *myWriteAPIKey="3A29NBTX5HQIRDR6";   
+
+void setup()
+{
+  // Initialize serial communication at 115200 baud rate
+  Serial.begin(115200);
+  pinMode (LDR_PIN,OUTPUT);
+  WiFi.mode(WIFI_STA);
+  ThingSpeak.begin(client);
+  
+  Serial.println("LDR Sensor with ESP32 WROOM");
   delay(1000);
+}
+void loop()
+{
+  if(WiFi.status()!=WL_CONNECTED)
+  {
+    Serial.print("Attempting to connet to SSID: "); 
+    Serial.println(ssid);
+    while(WiFi.status() != WL_CONNECTED)
+    {
+      WiFi.begin(ssid, pass);
+      Serial.print(".");
+      delay(5000);
+    }
+    Serial.println("\nConnected");
+  }
+  // Read the value from the LDR
+  int ldrValue = analogRead(LDR_PIN);
+
+  // Print the LDR value to the Serial Monitor
+  Serial.print("LDR Value: ");
+  Serial.println(ldrValue);
+  ThingSpeak.writeField(myChannelField,ChannelField1,ldrValue, myWriteAPIKey);
+  // Optional: Add a delay for a more stable output
+  delay(1000); // 1-second delay between readings
 }
 ~~~
 
 # CIRCUIT DIAGRAM:
 
-![b15372c8-d238-484c-88a7-e0a77786768c](https://github.com/user-attachments/assets/9fc131c7-7067-40a6-b4ea-85e3b995f771)
+
 
 # OUTPUT:
 
-![2a28f792-b721-45ee-a76a-7b2018b0c454](https://github.com/user-attachments/assets/03bc8a82-178b-49ba-b927-2004f7aa1a2e)
+![19862a4c-03d6-4f5c-92dc-fff87bddc214](https://github.com/user-attachments/assets/00ba5ff3-0e81-4e72-a144-9add469e3d89)
+![d60e2e9e-4522-444a-9ed2-4f50aeb0117d](https://github.com/user-attachments/assets/f94d154a-3de1-4112-83d4-e5bdbd81514c)
+
+
 
 # RESULT:
 

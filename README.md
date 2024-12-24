@@ -147,14 +147,14 @@ void loop()
 
 # CIRCUIT DIAGRAM:
 
-![565fb3e8-27d9-42f6-9647-1a87fad785a5](https://github.com/user-attachments/assets/7e2303d1-d908-4487-ae79-b2e8a7c1f6d9)
-
-![1576d25e-f210-4c5b-a942-3f50ff2e6a23](https://github.com/user-attachments/assets/9d87b358-1915-450c-8ea4-155e06e698a9)
+![4a5b1051-fec0-4f78-8b11-7825f01f5688](https://github.com/user-attachments/assets/bfefd145-9070-49a2-9f45-8024f9e99e4a)
 
 
 # OUTPUT:
 
-![19862a4c-03d6-4f5c-92dc-fff87bddc214](https://github.com/user-attachments/assets/00ba5ff3-0e81-4e72-a144-9add469e3d89)
+![0eb5e5d7-a5c7-4718-8b78-776fb70ce9d4](https://github.com/user-attachments/assets/e7be298f-5421-49dd-84e6-d7506689d7f6)
+
+
 ![d60e2e9e-4522-444a-9ed2-4f50aeb0117d](https://github.com/user-attachments/assets/f94d154a-3de1-4112-83d4-e5bdbd81514c)
 
 
